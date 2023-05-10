@@ -1,0 +1,49 @@
+<div class="section" *ngIf="timeline?.data">
+  <div>
+    <!-- Choose date -->
+    <mat-form-field appearance="outline">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [min]="minDate" [matDatepicker]="picker" (dateChange)="getDate($event)" [formControl]="currentDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+  </div>
+ 
+  <div class='timeline'>
+    <div class="div-1">
+      <h3>Total Confirmed</h3>
+      <h2>{{totalConfirmed | formatNumber}}</h2>
+    </div>
+
+    <div class="div-2">
+      <h3>Total Recovered</h3>
+      <h2>{{totalRecovered | formatNumber}}</h2>
+    </div>
+
+    <div class="div-3">
+      <h3>Total Deaths</h3>
+      <h2>{{totalDeaths | formatNumber}}</h2>
+    </div>
+
+  </div>
+
+  <div class='timeline day'>
+
+    <div class="div-4">
+      <h3>Confirmed</h3>
+      <h2>{{confirmed | formatNumber}}</h2>
+    </div>
+
+    <div class="div-5">
+      <h3>Recover</h3>
+      <h2>{{recovered | formatNumber}}</h2>
+    </div>
+
+    <div class="div-6">
+      <h3>Deaths</h3>
+      <h2>{{deaths | formatNumber}}</h2>
+    </div>
+
+  </div>
+  <div echarts [options]="chartOption" class="demo-chart"></div>
+</div>

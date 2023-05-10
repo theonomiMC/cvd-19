@@ -1,0 +1,40 @@
+<div class="section-ct">
+  <!-- select country from dropdown menu -->
+  <mat-form-field appearance="outline">
+    <mat-label for="cs">Choose Country</mat-label>
+    <mat-select name="" id="cs" (selectionChange)='updateValue($event)'>
+      <mat-option value="{{country.name}}" *ngFor='let country of countries?.data'>
+        {{country.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class='timeline' *ngIf="loading==false">
+
+    <div class="dashboard">
+      <p> {{details.updated_at}}</p>
+      <h3>Population: {{ details.population | number}}</h3>
+      <h3>Death Rate: {{details.death_rate }}%</h3>
+      <h3>Recovery Rate: {{details.recovery_rate}}%</h3>
+      <h3>Cases per million: {{details.cases_per_ml | number}}</h3>
+    </div>
+
+    <!-- select interval -->
+    <div *ngIf="response.timeline.length">
+      <mat-radio-group aria-label="Select an option" (change)="onChange($event)" name="period">
+        <mat-radio-button [checked]="true" name="full" value="f">Full Period</mat-radio-button>
+        <mat-radio-button value="m" name="month">90 days</mat-radio-button>
+      </mat-radio-group>
+
+      <!-- Charts -->
+      <div echarts [options]="period ? totalConfirmedShort:totalConfirmedOption" [autoResize]=true class="home-chart">
+      </div>
+      <div echarts [options]="period ? totalRecoverShort:totalRecoverOption" [autoResize]=true class="home-chart"></div>
+      <div echarts [options]="period ? totalDeathsShort:totalDeathsOption" [autoResize]=true class="home-chart"></div>
+      <div echarts [options]="period ? confirmedShort:confirmedOption" [autoResize]=true class="home-chart"></div>
+      <div echarts [options]="period ? recoverShort:recoverOption" [autoResize]=true class="home-chart"></div>
+      <div echarts [options]="period ? deathsShort:deathsOption" [autoResize]=true class="home-chart"></div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,53 @@
+
+.section-ct{
+  min-width: 200px;
+  max-width: 85vw;
+  min-height: 100vh;
+  text-align: center;
+  color: #000;
+  line-height: 2;
+  letter-spacing: 1px;
+  margin: 0 auto 7rem auto;
+  
+}
+
+.home-chart {
+  height: 500px;
+  margin:4rem auto;
+  padding:15px;
+}
+.mat-radio-button ~ .mat-radio-button {  
+  margin-left: 17px;
+}
+  
+.mat-form-field{
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 300px;
+}
+.charts{
+  transition: all .3s linear;
+}
+
+.table{
+  height: 300px;
+  padding:1rem 2rem;
+
+}
+.dashboard{
+  max-width: 300px;
+  margin:2rem auto;
+  text-align: left;
+  padding-left: 20px;
+  p{
+    color: rgb(116 116 116 / 97%);
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+  h3{
+    margin-bottom:.5rem ;
+    text-transform: capitalize;
+    letter-spacing: 1.2px;
+  }
+  
+}
